@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api") // Basis-URL für diesen Controller
 public class ApiController {
 
-    @GetMapping("/health")
-    public String healthCheck() {
-        return "API is running!";
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello, World!";
     }
 }

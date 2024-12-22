@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-boot-backend
+  labels:
+    app: spring-boot-backend
 spec:
   replicas: 2
   selector:
@@ -15,6 +17,17 @@ spec:
       containers:
       - name: spring-boot-backend
         image: spring-boot-backend:latest
-        imagePullPolicy: Never 
+        imagePullPolicy: Never
         ports:
         - containerPort: 8080
+        env:
+        - name: SERVER_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: SERVER_PORT
+        - name: CORS_ALLOWED_ORIGINS
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: CORS_ALLOWED_ORIGINS
