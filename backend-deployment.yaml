@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-backend
+  template:
+    metadata:
+      labels:
+        app: spring-boot-backend
+    spec:
+      containers:
+      - name: spring-boot-backend
+        image: spring-boot-backend:latest
+        ports:
+        - containerPort: 8080
