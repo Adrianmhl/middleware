@@ -1,32 +1,45 @@
-# middleware
-Projektbeschreibung
+# Shopping List Application
 
-Dies ist eine einfache Spring Boot REST API, die im Rahmen des Distributed Application Development Lab entwickelt wurde. Die API stellt einen Test-Endpunkt zur Verfügung und ist vollständig containerisiert, um die Anforderungen an Cloud-native und verteilte Systeme zu erfüllen.
+## Übersicht
 
-Technologien verwendet
+Dies ist eine einfache Shopping List Anwendung, die mit Spring Boot erstellt wurde. Sie bietet Endpunkte zum Hinzufügen, Abrufen, Aktualisieren und Löschen von Shopping Items.
 
-Java 17
-Spring Boot 3.4.1
-Docker und Docker Compose
-Swagger-UI
-Kubernetes (Minikube)
-API-Endpunkte
+## Voraussetzungen
 
-GET /test – Test-Endpunkt, der eine einfache Rückmeldung gibt
+- Java 11 oder höher
+- Maven
+- Docker
+- Docker Compose
 
-Installation und Ausführung
+## Anwendung starten
 
-Wechsel in das Projektverzeichnis:
-cd middleware
-Docker-Container erstellen und starten:
+### Mit Maven
+
+```sh
+./mvnw spring-boot:run
+
+Mit Docker
 docker-compose up --build
-Zugriff auf die API
 
-Swagger-UI ist erreichbar unter:
-http://localhost:8080/swagger-ui/index.html
+API Endpunkte
+Alle Items abrufen
+curl -X GET http://localhost:8080/api/shopping-list/items
 
-Der Test-Endpunkt ist erreichbar unter:
-http://localhost:8080/test
+Item nach Name abrufen
+curl -X GET http://localhost:8080/api/shopping-list/items/{name}
+
+Item hinzufügen
+curl -X POST http://localhost:8080/api/shopping-list/items \
+-H "Content-Type: application/json" \
+-d '{"id": 1, "name": "Milk", "quantity": 2}'
+
+Item aktualisieren
+curl -X PUT http://localhost:8080/api/shopping-list/items/{id} \
+-H "Content-Type: application/json" \
+-d '{"name": "Milk", "quantity": 3}'
+
+Item löschen
+curl -X DELETE http://localhost:8080/api/shopping-list/items/{id}
 
 12-Factor App Prinzipien angewendet
 
@@ -39,15 +52,18 @@ Processes – Das Backend läuft als stateless Prozess.
 Port Binding – Der Service wird über Port 8080 bereitgestellt.
 Concurrency – Container können skaliert werden, indem Kubernetes verwendet wird.
 Disposability – Der Service kann schnell gestartet und gestoppt werden.
-Dev/Prod Parity – Die Umgebung ist durch Docker in Dev und Prod konsistent.
-Logs – Logs werden direkt in der Konsole angezeigt.
-Admin Processes – Verwaltung erfolgt über Docker-Kommandos und Kubernetes-Manifeste.
-Kubernetes Deployment
+Dev/Prod Parity – Entwicklungs-, Staging- und Produktionsumgebungen sind so ähnlich wie möglich.
+Logs – Logs werden als Stream behandelt und können von Tools wie docker logs abgerufen werden.
+Admin Processes – Administrative Aufgaben können über separate Prozesse ausgeführt werden.
 
-Falls Kubernetes verwendet wird, sind folgende Schritte nötig.
 
-Minikube starten:
-minikube start
-Deployment erstellen:
-kubectl apply -f backend-deployment.yaml
-kubectl apply -f backend-service.yaml
+Code-Dokumentation
+
+Build
+./mvnw clean install
+
+Containerize
+docker-compose up --build
+
+Test
+./mvnw test

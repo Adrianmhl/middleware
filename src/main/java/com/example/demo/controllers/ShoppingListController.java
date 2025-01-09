@@ -35,7 +35,7 @@ public class ShoppingListController {
     public ShoppingItem addItem(@RequestBody ShoppingItem item) {
         System.out.println("POST /api/shopping-list/items called with: " + item);
         return shoppingListService.addItem(item);
-    }
+    }   
 
     @PutMapping("/items/{id}")
     public ResponseEntity<ShoppingItem> updateItem(@PathVariable Long id, @RequestBody ShoppingItem updatedItem) {

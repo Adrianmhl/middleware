@@ -1,0 +1,10 @@
+frontend/package-lock.json
+frontend/package.json
+target/classes/.DS_Store
+target/classes/com/.DS_Store
+target/classes/com/example/.DS_Store
+target/classes/com/example/demo/controllers/ShoppingListController.class
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
