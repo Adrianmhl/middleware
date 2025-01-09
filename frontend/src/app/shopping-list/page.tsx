@@ -23,7 +23,7 @@ export default function ShoppingList() {
     try {
       const data = await getShoppingItems();
       setItems(data);
-    } catch (err) {
+    } catch {
       setError('Error fetching shopping items');
     }
   };
@@ -39,7 +39,7 @@ export default function ShoppingList() {
       setItemName('');
       setQuantity(1); // Resette Werte nach erfolgreichem Hinzufügen
       loadItems();
-    } catch (err) {
+    } catch {
       setError('Error adding shopping item');
     }
   };
@@ -48,7 +48,7 @@ export default function ShoppingList() {
     try {
       await deleteShoppingItem(id);
       loadItems();
-    } catch (err) {
+    } catch {
       setError('Error deleting shopping item');
     }
   };
