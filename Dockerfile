@@ -1,5 +1,8 @@
 FROM openjdk:17-jdk-slim
 
+WORKDIR /app
+COPY target/*.jar app.jar
+
 # Argument für die JAR-Datei
 ARG JAR_FILE=target/demo-0.0.1-SNAPSHOT.jar
 

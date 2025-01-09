@@ -43,6 +43,12 @@
             <version>2.1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.14</version>
+        </dependency>
+
         <!-- Hibernate Validator (optional, for validation) -->
         <dependency>
             <groupId>org.hibernate.validator</groupId>

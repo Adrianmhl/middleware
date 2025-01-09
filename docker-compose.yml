@@ -1,9 +1,15 @@
 version: '3.8'
 services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://backend:8080
   backend:
     image: spring-boot-backend:latest
     build:
-      context: .
       dockerfile: Dockerfile
     ports:
       - "8080:8080"

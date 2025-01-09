@@ -1,2 +1,5 @@
-com/example/demo/DemoApplication.class
-com/example/demo/ApiController.class
+com\example\demo\ApiController.class
+com\example\demo\controllers\ShoppingListController.class
+com\example\demo\DemoApplication.class
+com\example\demo\models\ShoppingItem.class
+com\example\demo\services\ShoppingListService.class

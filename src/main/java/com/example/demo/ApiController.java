@@ -6,12 +6,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@Tag(name = "Test API", description = "Simple API to test the backend")
+@Tag(name = "Test Shopping List API", description = "Simple API to test the backend")
 public class ApiController {
 
-    @Operation(summary = "Test Endpoint", description = "Returns a simple message.")
+    @Operation(summary = "Test Endpoint 123", description = "Returns a simple message.")
     @GetMapping("/test")
     public String testEndpoint() {
-        return "API is working!";
+        return "API is working";
     }
+    
 }
